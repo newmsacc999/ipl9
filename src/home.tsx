@@ -18,7 +18,7 @@ function Home() {
           name: "Mumbai Indians",
           logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
         },
-        venue: "M. Chinnaswamy Stadium, Bengaluru",
+        venue: "M. Chinnaswamy Stadium, Bangalore",
       },
       {
         id: "match2",
@@ -424,7 +424,7 @@ function Home() {
           name: "Chennai Super Kings",
           logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
         },
-        venue: "M. Chinnaswamy Stadium, Bengaluru",
+        venue: "M. Chinnaswamy Stadium, Bangalore",
       },
       {
         id: "match31",
@@ -592,7 +592,7 @@ function Home() {
           name: "Sunrisers Hyderabad",
           logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
         },
-        venue: "M. Chinnaswamy Stadium, Bengaluru",
+        venue: "M. Chinnaswamy Stadium, Bangalore",
       },
       {
         id: "match65",
@@ -648,7 +648,7 @@ function Home() {
           name: "Kolkata Knight Riders",
           logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
         },
-        venue: "M. Chinnaswamy Stadium, Bengaluru",
+        venue: "M. Chinnaswamy Stadium, Bangalore",
       },
       {
         id: "match69",
@@ -690,7 +690,7 @@ function Home() {
         <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
           <div className="px-4 py-3">
             <img 
-              src="/src/img/bookmyshow-logo-vector.png"
+              src="https://getlogo.net/wp-content/uploads/2020/04/bookmyshow-logo-vector.png"
               alt="BookMyShow"
               className="h-8"
             />
@@ -702,7 +702,7 @@ function Home() {
           {/* Hero Image */}
           <div className="w-full">
             <img 
-              src="/src/img/banner-mobile.png"
+              src="https://www.tribuneindia.com/ipl_assets/banner-mobile.png"
               alt="IPL 2025"
               className="w-full"
             />
@@ -821,7 +821,7 @@ function Home() {
                 </h3>
                 <div className="flex justify-center">
                   <img 
-                    src="https://www.iplt20.com/assets/images/sponsors/star-sports.png"
+                    src="https://documents.iplt20.com//ipl/assets/images/new-sponsor-start-sports-logo.webp"
                     alt="Star Sports"
                     className="h-12"
                   />
@@ -835,7 +835,7 @@ function Home() {
                 </h3>
                 <div className="flex justify-center">
                   <img 
-                    src="https://www.iplt20.com/assets/images/sponsors/tata.png"
+                    src="https://documents.iplt20.com//ipl/assets/images/new-sponsor-tata-logo.webp"
                     alt="TATA"
                     className="h-12"
                   />
@@ -849,7 +849,7 @@ function Home() {
                 </h3>
                 <div className="flex justify-center">
                   <img 
-                    src="https://www.iplt20.com/assets/images/sponsors/jio.png"
+                    src="https://documents.iplt20.com//ipl/assets/images/JioHotstar.webp"
                     alt="JioHotstar"
                     className="h-12"
                   />
@@ -863,17 +863,17 @@ function Home() {
                 </h3>
                 <div className="flex justify-center items-center gap-8">
                   <img 
-                    src="https://www.iplt20.com/assets/images/sponsors/my11circle.png"
+                    src="https://documents.iplt20.com//ipl/assets/images/new-sponsor-my11circle-logo.webp"
                     alt="My11Circle"
                     className="h-8"
                   />
                   <img 
-                    src="https://www.iplt20.com/assets/images/sponsors/angelone.png"
+                    src="https://documents.iplt20.com//ipl/assets/images/new-sponsor-angelone-logo.webp"
                     alt="AngelOne"
                     className="h-8"
                   />
                   <img 
-                    src="https://www.iplt20.com/assets/images/sponsors/rupay.png"
+                    src="https://documents.iplt20.com//ipl/assets/images/new-sponsor-rupay-logo.webp"
                     alt="RuPay"
                     className="h-8"
                   />
@@ -888,7 +888,7 @@ function Home() {
                   </h3>
                   <div className="flex justify-center">
                     <img 
-                      src="https://www.iplt20.com/assets/images/sponsors/wonder-cement.png"
+                      src="https://documents.iplt20.com//ipl/assets/images/new-partner-wonder-cement.webp"
                       alt="Wonder Cement"
                       className="h-10"
                     />
@@ -900,7 +900,7 @@ function Home() {
                   </h3>
                   <div className="flex justify-center">
                     <img 
-                      src="https://www.iplt20.com/assets/images/sponsors/ceat.png"
+                      src="https://documents.iplt20.com//ipl/assets/images/new-sponsor-ceat-logo.webp"
                       alt="CEAT"
                       className="h-10"
                     />

@@ -103,7 +103,7 @@ function PaymentOptions() {
           </Link>
           <div className="flex-1">
             <img 
-              src="/src/img/bookmyshow-logo-vector.png"
+              src="https://getlogo.net/wp-content/uploads/2020/04/bookmyshow-logo-vector.png"
               alt="BookMyShow"
               className="h-6"
             />

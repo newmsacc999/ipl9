@@ -26,16 +26,16 @@ function SeatSelection() {
   const [selectionSource, setSelectionSource] = useState<'grid' | 'buttons' | null>(null);
   const [quantity, setQuantity] = useState(1);
   const stadiumMaps = {
-    "Narendra Modi Stadium, Ahmedabad": "/src/img/stadiums/ahmedabad.jpg",
-    "Wankhede Stadium, Mumbai": "/src/img/stadiums/mumbai.jpg",
-    "M. Chinnaswamy Stadium, Bangalore": "/src/img/stadiums/bengaluru.jpg",
-    "Eden Gardens, Kolkata": "/src/img/stadiums/kokata.webp",
-    "MA Chidambaram Stadium, Chennai": "/src/img/stadiums/chennai.webp",
-    "Arun Jaitley Stadium, Delhi": "/src/img/stadiums/delhi.jpg",
-    "Rajiv Gandhi International Cricket Stadium, Hyderabad": "/src/img/stadiums/hyderabad.jpg",
-    "Sawai Mansingh Stadium, Jaipur": "/src/img/stadiums/jaipur.png",
-    "BRSABV Ekana Cricket Stadium, Lucknow": "/src/img/stadiums/lucknow.jpg",
-    "Mullanpur Stadium, New Chandigarh, Punjab": "/src/img/stadiums/chandigarh.jpeg"
+    "Narendra Modi Stadium, Ahmedabad": "https://www.xchangetickets.com/seatingplans/venue_1030.jpg",
+    "Wankhede Stadium, Mumbai": "https://t20slam.com/wp-content/uploads/2020/03/Wankhede-stadium-map-with-seat-numbers.jpg",
+    "M. Chinnaswamy Stadium, Bangalore": "https://cdn.shopify.com/s/files/1/0278/4565/6649/files/WhatsApp_Image_2023-10-02_at_18.06.17.webp",
+    "Eden Gardens, Kolkata": "https://ipltickets.in/wp-content/uploads/2024/02/kolkata-eden-gardens-stadium-stands-pavilions-seat-chart.jpg",
+    "MA Chidambaram Stadium, Chennai": "https://ultimatecricketguru.com/wp-content/uploads/2023/09/m-chinnaswamy-stadium-bangalore-seating-plan.webp",
+    "Arun Jaitley Stadium, Delhi": "https://www.xchangetickets.co.uk/seatingplans/venue_1154.jpg",
+    "Rajiv Gandhi International Cricket Stadium, Hyderabad": "https://assets.isu.pub/document-structure/230315054443-5af6010b1e320f4688b2f873e7154667/v1/4e43fccb3dabbcc2559d4ca250350baf.jpeg",
+    "Sawai Mansingh Stadium, Jaipur": "https://indiaongo.in/wp-content/uploads/2018/04/sms-stadium-jaipur-seating-layout-arrangements.png",
+    "BRSABV Ekana Cricket Stadium, Lucknow": "https://indiaongo.in/wp-content/uploads/2022/09/ekana-stadium-seating-map-lucknow.jpg",
+    "Mullanpur Stadium, New Chandigarh, Punjab": "https://indiaongo.in/wp-content/uploads/2024/03/new-pca-stadium-mullanpur-mohali.jpeg"
   };
   
   // This would come from your match data
@@ -56,24 +56,25 @@ function SeatSelection() {
 
   const ticketTypes = [
     { id: 'general', name: 'General Stand', price: 999, available: 85 },
-    { id: 'premium', name: 'Premium Stand', price: 1999, available: 100 },
-    { id: 'pavilion', name: 'Pavilion Stand', price: 2999, available: 50 },
-    { id: 'vip', name: 'VIP Stand', price: 4999, available: 100 },
-    { id: 'corporate', name: 'Corporate Box', price: 7999, available: 45 },
-    { id: 'hospitality', name: 'Hospitality Box', price: 9999, available: 25 },
-    { id: 'skybox', name: 'Skybox/Lounge', price: 12999, available: 30 },
-    { id: 'premium-plus', name: 'Premium Plus', price: 3999, available: 60 },
-    { id: 'executive', name: 'Executive Lounge', price: 5999, available: 40 },
+    { id: 'premium', name: 'Premium Stand', price: 999, available: 100 },
+    { id: 'pavilion', name: 'Pavilion Stand', price: 999, available: 50 },
+    { id: 'vip', name: 'VIP Stand', price: 999, available: 100 },
+    { id: 'corporate', name: 'Corporate Box', price: 999, available: 45 },
+    { id: 'hospitality', name: 'Hospitality Box', price: 1500, available: 25 },
+    { id: 'skybox', name: 'Skybox/Lounge', price: 1700, available: 30 },
+    { id: 'premium-plus', name: 'Premium Plus', price: 1500, available: 60 },
+    { id: 'executive', name: 'Executive Lounge', price: 999, available: 40 },
+    { id: 'executiveplus', name: 'Executive Lounge', price: 1500, available: 40 },
   ];
 
   const bottomTicketTypes = [
-    { id: 'general', name: 'General Stand', price: 999, description: 'Affordable seating, usually in the upper stands.' },
-    { id: 'premium', name: 'Premium Stand', price: 1999, description: 'Better view with comfortable seating.' },
-    { id: 'pavilion', name: 'Pavilion Stand', price: 2999, description: 'Premium seating with excellent view of the pitch.' },
-    { id: 'vip', name: 'VIP Stand', price: 4999, description: 'Exclusive seating with premium amenities.' },
-    { id: 'corporate', name: 'Corporate Box', price: 7999, description: 'Private box for corporate groups with catering.' },
-    { id: 'hospitality', name: 'Hospitality Box', price: 9999, description: 'Luxury experience with food and beverages included.' },
-    { id: 'skybox', name: 'Skybox/Lounge', price: 12999, description: 'Ultimate luxury experience with panoramic views.' },
+    { id: 'general', name: 'General Stand', price: 100, description: 'Affordable seating, usually in the upper stands.' },
+    { id: 'premium', name: 'Premium Stand', price: 200, description: 'Better view with comfortable seating.' },
+    { id: 'pavilion', name: 'Pavilion Stand', price: 250, description: 'Premium seating with excellent view of the pitch.' },
+    { id: 'vip', name: 'VIP Stand', price: 400, description: 'Exclusive seating with premium amenities.' },
+    { id: 'corporate', name: 'Corporate Box', price: 500, description: 'Private box for corporate groups with catering.' },
+    { id: 'hospitality', name: 'Hospitality Box', price: 750, description: 'Luxury experience with food and beverages included.' },
+    { id: 'skybox', name: 'Skybox/Lounge', price: 1000, description: 'Ultimate luxury experience with panoramic views.' },
   ];
 
   const handleTicketTypeSelect = (id: string) => {
