@@ -681,8 +681,17 @@ function Home() {
     ];
 
 
+    // Filter out past matches
+    const currentDate = new Date();
+    
+    // Convert date strings to Date objects for comparison
+    const upcomingMatches = matches.filter(match => {
+      const matchDate = new Date(match.date + ", 2025");
+      return matchDate >= currentDate;
+    });
+
     // Get visible matches based on showAllMatches state
-    const visibleMatches = showAllMatches ? matches : matches.slice(0, 3);
+    const visibleMatches = showAllMatches ? upcomingMatches : upcomingMatches.slice(0, 3);
 
     return (
         <div className="min-h-screen bg-white">
