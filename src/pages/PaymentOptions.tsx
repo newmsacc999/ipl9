@@ -29,10 +29,10 @@ const upiConfig = {
 };
 
 // Add app-specific URL schemes
-// Update app schemes
+// Update app schemes with proper UPI parameters
 const appSchemes = {
   phonePe: "phonepe://pay",
-  paytm: "paytmmp://pay",  // Updated Paytm scheme
+  paytm: "paytmmp://pay",
   googlePay: "gpay://upi/pay",
 };
 
@@ -68,7 +68,18 @@ function PaymentOptions() {
     const upiId = upiConfig[app];
     const description = `Tickets for ${paymentData.bookingData.match.team1} vs ${paymentData.bookingData.match.team2}`;
     
-    window.location.href = appSchemes[app];
+    // Create app-specific deep links with proper parameters
+    let appLink = '';
+    
+    if (app === 'phonePe') {
+      // PhonePe specific format
+      appLink = `phonepe://pay?pa=${upiId}&pn=BookMyShow&am=${amount}&tn=${encodeURIComponent(description)}&cu=INR`;
+    } else if (app === 'paytm') {
+      // Paytm specific format
+      appLink = `paytmmp://pay?pa=${upiId}&pn=BookMyShow&am=${amount}&tn=${encodeURIComponent(description)}&cu=INR`;
+    }
+    
+    window.location.href = appLink;
   };
 
   const handleOtherUpiClick = () => {
