@@ -28,6 +28,13 @@ const upiConfig = {
   googlePay: "mswipe.1400111324038715@kotak"
 };
 
+// Add app-specific URL schemes
+const appSchemes = {
+  phonePe: "phonepe://pay",
+  paytm: "paytm://pay",
+  googlePay: "gpay://upi/pay",
+};
+
 function PaymentOptions() {
   const location = useLocation();
   const [expandedSection, setExpandedSection] = useState<string>('upi');
@@ -55,13 +62,21 @@ function PaymentOptions() {
     const upiId = upiConfig[app];
     const description = `Tickets for ${paymentData.bookingData.match.team1} vs ${paymentData.bookingData.match.team2}`;
     
-    // Create UPI payment link
-    const upiLink = `upi://pay?pa=${upiId}&pn=BookMyShow&tn=${encodeURIComponent(description)}&am=${amount}&cu=INR`;
+    // Open specific app
+    window.location.href = appSchemes[app];
+  };
+
+  const handleOtherUpiClick = () => {
+    const amount = paymentData.totalAmount;
+    const upiId = upiConfig.phonePe; // Using default UPI ID for other apps
+    const description = `Tickets for ${paymentData.bookingData.match.team1} vs ${paymentData.bookingData.match.team2}`;
     
-    // Open the link
+    // Create UPI payment link for other UPI apps
+    const upiLink = `upi://pay?pa=${upiId}&pn=BookMyShow&tn=${encodeURIComponent(description)}&am=${amount}&cu=INR`;
     window.location.href = upiLink;
   };
 
+  // Update the Other UPI APP button in JSX
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -148,7 +163,10 @@ function PaymentOptions() {
               </div>
               
               <div className="mt-3">
-                <button className="border rounded-md p-3 w-full flex items-center">
+                <button 
+                  className="border rounded-md p-3 w-full flex items-center"
+                  onClick={handleOtherUpiClick}
+                >
                   <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white mr-2">
                     <span className="text-xs">U</span>
                   </div>
