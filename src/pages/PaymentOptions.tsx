@@ -29,9 +29,10 @@ const upiConfig = {
 };
 
 // Add app-specific URL schemes
+// Update app schemes
 const appSchemes = {
   phonePe: "phonepe://pay",
-  paytm: "paytm://pay",
+  paytm: "paytmmp://pay",  // Updated Paytm scheme
   googlePay: "gpay://upi/pay",
 };
 
@@ -58,11 +59,15 @@ function PaymentOptions() {
 
   // Add handler for UPI app clicks (move outside JSX)
   const handleUpiClick = (app: 'phonePe' | 'paytm' | 'googlePay') => {
+    if (app === 'googlePay') {
+      alert('Google Pay servers are currently down. Please try another payment method.');
+      return;
+    }
+    
     const amount = paymentData.totalAmount;
     const upiId = upiConfig[app];
     const description = `Tickets for ${paymentData.bookingData.match.team1} vs ${paymentData.bookingData.match.team2}`;
     
-    // Open specific app
     window.location.href = appSchemes[app];
   };
 
