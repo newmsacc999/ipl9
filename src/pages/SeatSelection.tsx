@@ -54,18 +54,20 @@ function SeatSelection() {
     venue: "Narendra Modi Stadium, Ahmedabad, Gujarat",
   };
 
+
   const ticketTypes = [
-    { id: 'general', name: 'General Stand', price: 999, available: 85 },
-    { id: 'premium', name: 'Premium Stand', price: 999, available: 100 },
-    { id: 'pavilion', name: 'Pavilion Stand', price: 999, available: 50 },
-    { id: 'vip', name: 'VIP Stand', price: 999, available: 100 },
-    { id: 'corporate', name: 'Corporate Box', price: 999, available: 45 },
-    { id: 'hospitality', name: 'Hospitality Box', price: 1500, available: 25 },
-    { id: 'skybox', name: 'Skybox/Lounge', price: 1700, available: 30 },
+    { id: 'general', name: 'General Stand', price: 100, available: 85 },
+    { id: 'premium', name: 'Premium Stand', price: 200, available: 100 },
+    { id: 'pavilion', name: 'Pavilion Stand', price: 250, available: 50 },
+    { id: 'vip', name: 'VIP Stand', price: 400, available: 100 },
+    { id: 'corporate', name: 'Corporate Box', price: 500, available: 45 },
+    { id: 'hospitality', name: 'Hospitality Box', price: 750, available: 25 },
+    { id: 'skybox', name: 'Skybox/Lounge', price: 1000, available: 30 },
     { id: 'premium-plus', name: 'Premium Plus', price: 1500, available: 60 },
     { id: 'executive', name: 'Executive Lounge', price: 999, available: 40 },
     { id: 'executiveplus', name: 'Executive Lounge', price: 1500, available: 40 },
   ];
+
 
   const bottomTicketTypes = [
     { id: 'general', name: 'General Stand', price: 100, description: 'Affordable seating, usually in the upper stands.' },
