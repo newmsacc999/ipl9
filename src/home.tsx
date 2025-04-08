@@ -5,682 +5,1383 @@ import { Link } from 'react-router-dom';
 function Home() { 
     const [showAllMatches, setShowAllMatches] = useState(false);
     // Match data array with all matches
+    // const matches = [
+    //   {
+    //     id: "match1",
+    //     date: "7 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Royal Challengers Bengaluru",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Mumbai Indians",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+    //     },
+    //     venue: "M. Chinnaswamy Stadium, Bangalore",
+    //   },
+    //   {
+    //     id: "match2",
+    //     date: "8 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Punjab Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Chennai Super Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+    //     },
+    //     venue: "Mullanpur Stadium, New Chandigarh, Punjab",
+    //   },
+    //   {
+    //     id: "match3",
+    //     date: "9 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Gujarat Titans",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Rajasthan Royals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+    //     },
+    //     venue: "Narendra Modi Stadium, Ahmedabad",
+    //   },
+    //   {
+    //     id: "match4",
+    //     date: "10 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Delhi Capitals",
+    //       logo: " ",
+    //     },
+    //     team2: {
+    //       name: "Royal Challengers Bengaluru",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+    //     },
+    //     venue: "M. Chinnaswamy Stadium, Bangalore",
+    //   },
+    //   {
+    //     id: "match5",
+    //     date: "11 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Delhi Capitals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+    //     },
+    //     team2: {
+    //       name: "Kolkata Knight Riders",
+    //       logo: "",
+    //     },
+    //     venue: "Arun Jaitley Stadium, Delhi",
+    //   },
+    //   {
+    //     id: "match6",
+    //     date: "12 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Lucknow Super Giants",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Sunrisers Hyderabad",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+    //     },
+    //     venue: "BRSABV Ekana Cricket Stadium, Lucknow",
+    //   },
+    //   {
+    //     id: "match7",
+    //     date: "13 April 2025",
+    //     time: "3:30 PM IST",
+    //     team1: {
+    //       name: "Chennai Super Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Mumbai Indians",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+    //     },
+    //     venue: "MA Chidambaram Stadium, Chennai",
+    //   },
+    //   {
+    //     id: "match8",
+    //     date: "13 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Royal Challengers Bengaluru",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Gujarat Titans",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+    //     },
+    //     venue: "M. Chinnaswamy Stadium, Bangalore",
+    //   },
+    //   {
+    //     id: "match9",
+    //     date: "14 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Rajasthan Royals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+    //     },
+    //     team2: {
+    //       name: "Delhi Capitals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+    //     },
+    //     venue: "Sawai Mansingh Stadium, Jaipur",
+    //   },
+    //   {
+    //     id: "match10",
+    //     date: "15 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Kolkata Knight Riders",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Punjab Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+    //     },
+    //     venue: "Eden Gardens, Kolkata",
+    //   },
+    //   {
+    //     id: "match11",
+    //     date: "16 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Sunrisers Hyderabad",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Chennai Super Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+    //     },
+    //     venue: "Rajiv Gandhi International Cricket Stadium, Hyderabad",
+    //   },
+    //   {
+    //     id: "match12",
+    //     date: "18 April 2025",
+    //     time: "3:30 PM IST",
+    //     team1: {
+    //       name: "Gujarat Titans",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Delhi Capitals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+    //     },
+    //     venue: "Narendra Modi Stadium, Ahmedabad",
+    //   },
+    //   {
+    //     id: "match13",
+    //     date: "18 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Rajasthan Royals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+    //     },
+    //     team2: {
+    //       name: "Lucknow Super Giants",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+    //     },
+    //     venue: "Sawai Mansingh Stadium, Jaipur",
+    //   },
+    //   {
+    //     id: "match14",
+    //     date: "19 April 2025",
+    //     time: "3:30 PM IST",
+    //     team1: {
+    //       name: "Punjab Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Royal Challengers Bangalore",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+    //     },
+    //     venue: "Mullanpur Stadium, New Chandigarh, Punjab",
+    //   },
+    //   {
+    //     id: "match15",
+    //     date: "19 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Mumbai Indians",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Chennai Super Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+    //     },
+    //     venue: "Wankhede Stadium, Mumbai",
+    //   },
+    //   {
+    //     id: "match16",
+    //     date: "20 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Kolkata Knight Riders",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Gujarat Titans",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+    //     },
+    //     venue: "Eden Gardens, Kolkata",
+    //   },
+    //   {
+    //     id: "match17",
+    //     date: "21 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Lucknow Super Giants",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Delhi Capitals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+    //     },
+    //     venue: "BRSABV Ekana Cricket Stadium, Lucknow",
+    //   },
+    //   {
+    //     id: "match18",
+    //     date: "22 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Sunrisers Hyderabad",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Mumbai Indians",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+    //     },
+    //     venue: "Rajiv Gandhi International Cricket Stadium, Hyderabad",
+    //   },
+    //   {
+    //     id: "match19",
+    //     date: "23 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Royal Challengers Bangalore",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Rajasthan Royals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+    //     },
+    //     venue: "M. Chinnaswamy Stadium, Bangalore",
+    //   },
+    //   {
+    //     id: "match20",
+    //     date: "24 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Chennai Super Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Sunrisers Hyderabad",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+    //     },
+    //     venue: "MA Chidambaram Stadium, Chennai",
+    //   },
+    //   {
+    //     id: "match21",
+    //     date: "25 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Kolkata Knight Riders",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Punjab Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+    //     },
+    //     venue: "Eden Gardens, Kolkata",
+    //   },
+    //   {
+    //     id: "match22",
+    //     date: "26 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Kolkata Knight Riders",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Punjab Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+    //     },
+    //     venue: "Eden Gardens, Kolkata",
+    //   },
+    //   {
+    //     id: "match23",
+    //     date: "27 April 2025",
+    //     time: "3:30 PM IST",
+    //     team1: {
+    //       name: "Mumbai Indians",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Lucknow Super Giants",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+    //     },
+    //     venue: "Wankhede Stadium, Mumbai",
+    //   },
+    //   {
+    //     id: "match24",
+    //     date: "27 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Delhi Capitals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+    //     },
+    //     team2: {
+    //       name: "Royal Challengers Bengaluru",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+    //     },
+    //     venue: "Arun Jaitley Stadium, Delhi",
+    //   },
+    //   {
+    //     id: "match25",
+    //     date: "28 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Rajasthan Royals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+    //     },
+    //     team2: {
+    //       name: "Gujarat Titans",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+    //     },
+    //     venue: "Sawai Mansingh Stadium, Jaipur",
+    //   },
+    //   {
+    //     id: "match26",
+    //     date: "29 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Delhi Capitals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+    //     },
+    //     team2: {
+    //       name: "Kolkata Knight Riders",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+    //     },
+    //     venue: "Arun Jaitley Stadium, Delhi",
+    //   },
+    //   {
+    //     id: "match27",
+    //     date: "30 April 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Chennai Super Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Punjab Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+    //     },
+    //     venue: "MA Chidambaram Stadium, Chennai",
+    //   },
+    //   {
+    //     id: "match28",
+    //     date: "1 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Rajasthan Royals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+    //     },
+    //     team2: {
+    //       name: "Mumbai Indians",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+    //     },
+    //     venue: "Sawai Mansingh Stadium, Jaipur",
+    //   },
+    //   {
+    //     id: "match29",
+    //     date: "2 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Gujarat Titans",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Sunrisers Hyderabad",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+    //     },
+    //     venue: "Narendra Modi Stadium, Ahmedabad",
+    //   },
+    //   {
+    //     id: "match30",
+    //     date: "3 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Royal Challengers Bengaluru",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Chennai Super Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+    //     },
+    //     venue: "M. Chinnaswamy Stadium, Bangalore",
+    //   },
+    //   {
+    //     id: "match31",
+    //     date: "4 May 2025",
+    //     time: "3:30 PM IST",
+    //     team1: {
+    //       name: "Kolkata Knight Riders",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Rajasthan Royals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+    //     },
+    //     venue: "Eden Gardens, Kolkata",
+    //   },
+    //   {
+    //     id: "match32",
+    //     date: "4 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Punjab Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Lucknow Super Giants",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+    //     },
+    //     venue: "Dharamsala Stadium, Dharamsala",
+    //   },
+    //   {
+    //     id: "match55",
+    //     date: "5 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Sunrisers Hyderabad",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Delhi Capitals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+    //     },
+    //     venue: "Rajiv Gandhi International Cricket Stadium, Hyderabad",
+    //   },
+    //   {
+    //     id: "match56",
+    //     date: "6 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Mumbai Indians",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Gujarat Titans",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+    //     },
+    //     venue: "Wankhede Stadium, Mumbai",
+    //   },
+    //   {
+    //     id: "match57",
+    //     date: "7 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Kolkata Knight Riders",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Chennai Super Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+    //     },
+    //     venue: "Eden Gardens, Kolkata",
+    //   },
+    //   {
+    //     id: "match58",
+    //     date: "8 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Punjab Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Delhi Capitals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+    //     },
+    //     venue: "Dharamsala Stadium, Dharamsala",
+    //   },
+    //   {
+    //     id: "match59",
+    //     date: "9 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Lucknow Super Giants",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Royal Challengers Bengaluru",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+    //     },
+    //     venue: "BRSABV Ekana Cricket Stadium, Lucknow",
+    //   },
+    //   {
+    //     id: "match60",
+    //     date: "10 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Sunrisers Hyderabad",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Kolkata Knight Riders",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+    //     },
+    //     venue: "Rajiv Gandhi International Cricket Stadium, Hyderabad",
+    //   },
+    //   {
+    //     id: "match61",
+    //     date: "11 May 2025",
+    //     time: "3:30 PM IST",
+    //     team1: {
+    //       name: "Punjab Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Mumbai Indians",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+    //     },
+    //     venue: "Dharamsala Stadium, Dharamsala",
+    //   },
+    //   {
+    //     id: "match62",
+    //     date: "11 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Delhi Capitals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+    //     },
+    //     team2: {
+    //       name: "Gujarat Titans",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+    //     },
+    //     venue: "Arun Jaitley Stadium, Delhi",
+    //   },
+    //   {
+    //     id: "match63",
+    //     date: "12 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Chennai Super Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Rajasthan Royals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+    //     },
+    //     venue: "MA Chidambaram Stadium, Chennai",
+    //   },
+    //   {
+    //     id: "match64",
+    //     date: "13 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Royal Challengers Bengaluru",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Sunrisers Hyderabad",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+    //     },
+    //     venue: "M. Chinnaswamy Stadium, Bangalore",
+    //   },
+    //   {
+    //     id: "match65",
+    //     date: "14 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Gujarat Titans",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Lucknow Super Giants",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+    //     },
+    //     venue: "Narendra Modi Stadium, Ahmedabad",
+    //   },
+    //   {
+    //     id: "match66",
+    //     date: "15 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Mumbai Indians",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Delhi Capitals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+    //     },
+    //     venue: "Wankhede Stadium, Mumbai",
+    //   },
+    //   {
+    //     id: "match67",
+    //     date: "16 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Rajasthan Royals",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+    //     },
+    //     team2: {
+    //       name: "Punjab Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+    //     },
+    //     venue: "Sawai Mansingh Stadium, Jaipur",
+    //   },
+    //   {
+    //     id: "match68",
+    //     date: "17 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Royal Challengers Bengaluru",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Kolkata Knight Riders",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+    //     },
+    //     venue: "M. Chinnaswamy Stadium, Bangalore",
+    //   },
+    //   {
+    //     id: "match69",
+    //     date: "18 May 2025",
+    //     time: "3:30 PM IST",
+    //     team1: {
+    //       name: "Gujarat Titans",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Chennai Super Kings",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+    //     },
+    //     venue: "Narendra Modi Stadium, Ahmedabad",
+    //   },
+    //   {
+    //     id: "match70",
+    //     date: "18 May 2025",
+    //     time: "7:30 PM IST",
+    //     team1: {
+    //       name: "Lucknow Super Giants",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+    //     },
+    //     team2: {
+    //       name: "Sunrisers Hyderabad",
+    //       logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+    //     },
+    //     venue: "BRSABV Ekana Cricket Stadium, Lucknow",
+    //   },
+    // ];
+
     const matches = [
       {
-        id: "match1",
-        date: "7 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Royal Challengers Bengaluru",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+        "id": "match19",
+        "date": "08-Apr-25",
+        "time": "3:30 PM",
+        "team1": {
+          "name": "Kolkata Knight Riders",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg"
         },
-        team2: {
-          name: "Mumbai Indians",
-          logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+        "team2": {
+          "name": "Lucknow Super Giants",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg"
         },
-        venue: "M. Chinnaswamy Stadium, Bangalore",
+        "venue": "Eden Gardens, Kolkata"
       },
       {
-        id: "match2",
-        date: "8 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Punjab Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+        "id": "match22",
+        "date": "08-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Punjab Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg"
         },
-        team2: {
-          name: "Chennai Super Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+        "team2": {
+          "name": "Chennai Super Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg"
         },
-        venue: "Mullanpur Stadium, New Chandigarh, Punjab",
+        "venue": "Mullanpur Stadium, New Chandigarh, Punjab"
       },
       {
-        id: "match3",
-        date: "9 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Gujarat Titans",
-          logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+        "id": "match23",
+        "date": "09-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Gujarat Titans",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg"
         },
-        team2: {
-          name: "Rajasthan Royals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+        "team2": {
+          "name": "Rajasthan Royals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg"
         },
-        venue: "Narendra Modi Stadium, Ahmedabad",
+        "venue": "Narendra Modi Stadium, Ahmedabad"
       },
       {
-        id: "match4",
-        date: "10 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Mumbai Indians",
-          logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+        "id": "match24",
+        "date": "10-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Royal Challengers Bengaluru",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg"
         },
-        team2: {
-          name: "Royal Challengers Bengaluru",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+        "team2": {
+          "name": "Delhi Capitals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg"
         },
-        venue: "Wankhede Stadium, Mumbai",
+        "venue": "M. Chinnaswamy Stadium, Bangalore"
       },
       {
-        id: "match5",
-        date: "11 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Delhi Capitals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+        "id": "match25",
+        "date": "11-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Chennai Super Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg"
         },
-        team2: {
-          name: "Kolkata Knight Riders",
-          logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+        "team2": {
+          "name": "Kolkata Knight Riders",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg"
         },
-        venue: "Arun Jaitley Stadium, Delhi",
+        "venue": "MA Chidambaram Stadium, Chennai"
       },
       {
-        id: "match6",
-        date: "12 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Lucknow Super Giants",
-          logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        "id": "match26",
+        "date": "12-Apr-25",
+        "time": "3:30 PM",
+        "team1": {
+          "name": "Lucknow Super Giants",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg"
         },
-        team2: {
-          name: "Sunrisers Hyderabad",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+        "team2": {
+          "name": "Gujarat Titans",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg"
         },
-        venue: "BRSABV Ekana Cricket Stadium, Lucknow",
+        "venue": "BRSABV Ekana Cricket Stadium, Lucknow"
       },
       {
-        id: "match7",
-        date: "13 April 2025",
-        time: "3:30 PM IST",
-        team1: {
-          name: "Chennai Super Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+        "id": "match27",
+        "date": "12-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Sunrisers Hyderabad",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg"
         },
-        team2: {
-          name: "Mumbai Indians",
-          logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+        "team2": {
+          "name": "Punjab Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg"
         },
-        venue: "MA Chidambaram Stadium, Chennai",
+        "venue": "Rajiv Gandhi International Cricket Stadium, Hyderabad"
       },
       {
-        id: "match8",
-        date: "13 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Royal Challengers Bengaluru",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+        "id": "match28",
+        "date": "13-Apr-25",
+        "time": "3:30 PM",
+        "team1": {
+          "name": "Rajasthan Royals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg"
         },
-        team2: {
-          name: "Gujarat Titans",
-          logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+        "team2": {
+          "name": "Royal Challengers Bengaluru",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg"
         },
-        venue: "M. Chinnaswamy Stadium, Bangalore",
+        "venue": "Sawai Mansingh Stadium, Jaipur"
       },
       {
-        id: "match9",
-        date: "14 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Rajasthan Royals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+        "id": "match29",
+        "date": "13-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Delhi Capitals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg"
         },
-        team2: {
-          name: "Delhi Capitals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+        "team2": {
+          "name": "Mumbai Indians",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg"
         },
-        venue: "Sawai Mansingh Stadium, Jaipur",
+        "venue": "Arun Jaitley Stadium, Delhi"
       },
       {
-        id: "match10",
-        date: "15 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Kolkata Knight Riders",
-          logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+        "id": "match30",
+        "date": "14-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Lucknow Super Giants",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg"
         },
-        team2: {
-          name: "Punjab Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+        "team2": {
+          "name": "Chennai Super Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg"
         },
-        venue: "Eden Gardens, Kolkata",
+        "venue": "BRSABV Ekana Cricket Stadium, Lucknow"
       },
       {
-        id: "match11",
-        date: "16 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Sunrisers Hyderabad",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+        "id": "match31",
+        "date": "15-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Punjab Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg"
         },
-        team2: {
-          name: "Chennai Super Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+        "team2": {
+          "name": "Kolkata Knight Riders",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg"
         },
-        venue: "Rajiv Gandhi International Cricket Stadium, Hyderabad",
+        "venue": "Mullanpur Stadium, New Chandigarh, Punjab"
       },
       {
-        id: "match12",
-        date: "18 April 2025",
-        time: "3:30 PM IST",
-        team1: {
-          name: "Gujarat Titans",
-          logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+        "id": "match32",
+        "date": "16-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Delhi Capitals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg"
         },
-        team2: {
-          name: "Delhi Capitals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+        "team2": {
+          "name": "Rajasthan Royals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg"
         },
-        venue: "Narendra Modi Stadium, Ahmedabad",
+        "venue": "Arun Jaitley Stadium, Delhi"
       },
       {
-        id: "match13",
-        date: "18 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Rajasthan Royals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+        "id": "match33",
+        "date": "17-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Mumbai Indians",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg"
         },
-        team2: {
-          name: "Lucknow Super Giants",
-          logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        "team2": {
+          "name": "Sunrisers Hyderabad",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg"
         },
-        venue: "Sawai Mansingh Stadium, Jaipur",
+        "venue": "Wankhede Stadium, Mumbai"
       },
       {
-        id: "match14",
-        date: "19 April 2025",
-        time: "3:30 PM IST",
-        team1: {
-          name: "Punjab Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+        "id": "match34",
+        "date": "18-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Royal Challengers Bengaluru",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg"
         },
-        team2: {
-          name: "Royal Challengers Bangalore",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+        "team2": {
+          "name": "Punjab Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg"
         },
-        venue: "Mullanpur Stadium, New Chandigarh, Punjab",
+        "venue": "M. Chinnaswamy Stadium, Bangalore"
       },
       {
-        id: "match15",
-        date: "19 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Mumbai Indians",
-          logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+        "id": "match35",
+        "date": "19-Apr-25",
+        "time": "3:30 PM",
+        "team1": {
+          "name": "Gujarat Titans",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg"
         },
-        team2: {
-          name: "Chennai Super Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+        "team2": {
+          "name": "Delhi Capitals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg"
         },
-        venue: "Wankhede Stadium, Mumbai",
+        "venue": "Narendra Modi Stadium, Ahmedabad"
       },
       {
-        id: "match16",
-        date: "20 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Kolkata Knight Riders",
-          logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+        "id": "match36",
+        "date": "19-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Rajasthan Royals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg"
         },
-        team2: {
-          name: "Gujarat Titans",
-          logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+        "team2": {
+          "name": "Lucknow Super Giants",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg"
         },
-        venue: "Eden Gardens, Kolkata",
+        "venue": "Sawai Mansingh Stadium, Jaipur"
       },
       {
-        id: "match17",
-        date: "21 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Lucknow Super Giants",
-          logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        "id": "match37",
+        "date": "20-Apr-25",
+        "time": "3:30 PM",
+        "team1": {
+          "name": "Punjab Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg"
         },
-        team2: {
-          name: "Delhi Capitals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+        "team2": {
+          "name": "Royal Challengers Bengaluru",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg"
         },
-        venue: "BRSABV Ekana Cricket Stadium, Lucknow",
+        "venue": "Mullanpur Stadium, New Chandigarh, Punjab"
       },
       {
-        id: "match18",
-        date: "22 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Sunrisers Hyderabad",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+        "id": "match38",
+        "date": "20-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Mumbai Indians",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg"
         },
-        team2: {
-          name: "Mumbai Indians",
-          logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+        "team2": {
+          "name": "Chennai Super Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg"
         },
-        venue: "Rajiv Gandhi International Cricket Stadium, Hyderabad",
+        "venue": "Wankhede Stadium, Mumbai"
       },
       {
-        id: "match19",
-        date: "23 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Royal Challengers Bangalore",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+        "id": "match39",
+        "date": "21-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Kolkata Knight Riders",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg"
         },
-        team2: {
-          name: "Rajasthan Royals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+        "team2": {
+          "name": "Gujarat Titans",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg"
         },
-        venue: "M. Chinnaswamy Stadium, Bangalore",
+        "venue": "Eden Gardens, Kolkata"
       },
       {
-        id: "match20",
-        date: "24 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Chennai Super Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+        "id": "match40",
+        "date": "22-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Lucknow Super Giants",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg"
         },
-        team2: {
-          name: "Sunrisers Hyderabad",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+        "team2": {
+          "name": "Delhi Capitals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg"
         },
-        venue: "MA Chidambaram Stadium, Chennai",
+        "venue": "BRSABV Ekana Cricket Stadium, Lucknow"
       },
       {
-        id: "match21",
-        date: "25 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Kolkata Knight Riders",
-          logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+        "id": "match41",
+        "date": "23-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Sunrisers Hyderabad",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg"
         },
-        team2: {
-          name: "Punjab Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+        "team2": {
+          "name": "Mumbai Indians",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg"
         },
-        venue: "Eden Gardens, Kolkata",
+        "venue": "Rajiv Gandhi International Cricket Stadium, Hyderabad"
       },
       {
-        id: "match22",
-        date: "26 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Kolkata Knight Riders",
-          logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+        "id": "match42",
+        "date": "24-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Royal Challengers Bengaluru",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg"
         },
-        team2: {
-          name: "Punjab Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+        "team2": {
+          "name": "Rajasthan Royals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg"
         },
-        venue: "Eden Gardens, Kolkata",
+        "venue": "M. Chinnaswamy Stadium, Bangalore"
       },
       {
-        id: "match23",
-        date: "27 April 2025",
-        time: "3:30 PM IST",
-        team1: {
-          name: "Mumbai Indians",
-          logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+        "id": "match43",
+        "date": "25-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Chennai Super Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg"
         },
-        team2: {
-          name: "Lucknow Super Giants",
-          logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        "team2": {
+          "name": "Sunrisers Hyderabad",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg"
         },
-        venue: "Wankhede Stadium, Mumbai",
+        "venue": "MA Chidambaram Stadium, Chennai"
       },
       {
-        id: "match24",
-        date: "27 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Delhi Capitals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+        "id": "match44",
+        "date": "26-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Kolkata Knight Riders",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg"
         },
-        team2: {
-          name: "Royal Challengers Bengaluru",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+        "team2": {
+          "name": "Punjab Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg"
         },
-        venue: "Arun Jaitley Stadium, Delhi",
+        "venue": "Eden Gardens, Kolkata"
       },
       {
-        id: "match25",
-        date: "28 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Rajasthan Royals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+        "id": "match45",
+        "date": "27-Apr-25",
+        "time": "3:30 PM",
+        "team1": {
+          "name": "Mumbai Indians",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg"
         },
-        team2: {
-          name: "Gujarat Titans",
-          logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+        "team2": {
+          "name": "Lucknow Super Giants",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg"
         },
-        venue: "Sawai Mansingh Stadium, Jaipur",
+        "venue": "Wankhede Stadium, Mumbai"
       },
       {
-        id: "match26",
-        date: "29 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Delhi Capitals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+        "id": "match46",
+        "date": "27-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Delhi Capitals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg"
         },
-        team2: {
-          name: "Kolkata Knight Riders",
-          logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+        "team2": {
+          "name": "Royal Challengers Bengaluru",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg"
         },
-        venue: "Arun Jaitley Stadium, Delhi",
+        "venue": "Arun Jaitley Stadium, Delhi"
       },
       {
-        id: "match27",
-        date: "30 April 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Chennai Super Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+        "id": "match47",
+        "date": "28-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Rajasthan Royals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg"
         },
-        team2: {
-          name: "Punjab Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+        "team2": {
+          "name": "Gujarat Titans",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg"
         },
-        venue: "MA Chidambaram Stadium, Chennai",
+        "venue": "Sawai Mansingh Stadium, Jaipur"
       },
       {
-        id: "match28",
-        date: "1 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Rajasthan Royals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+        "id": "match48",
+        "date": "29-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Delhi Capitals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg"
         },
-        team2: {
-          name: "Mumbai Indians",
-          logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+        "team2": {
+          "name": "Kolkata Knight Riders",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg"
         },
-        venue: "Sawai Mansingh Stadium, Jaipur",
+        "venue": "Arun Jaitley Stadium, Delhi"
       },
       {
-        id: "match29",
-        date: "2 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Gujarat Titans",
-          logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+        "id": "match49",
+        "date": "30-Apr-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Chennai Super Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg"
         },
-        team2: {
-          name: "Sunrisers Hyderabad",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+        "team2": {
+          "name": "Punjab Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg"
         },
-        venue: "Narendra Modi Stadium, Ahmedabad",
+        "venue": "MA Chidambaram Stadium, Chennai"
       },
       {
-        id: "match30",
-        date: "3 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Royal Challengers Bengaluru",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+        "id": "match50",
+        "date": "01-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Rajasthan Royals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg"
         },
-        team2: {
-          name: "Chennai Super Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+        "team2": {
+          "name": "Mumbai Indians",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg"
         },
-        venue: "M. Chinnaswamy Stadium, Bangalore",
+        "venue": "Sawai Mansingh Stadium, Jaipur"
       },
       {
-        id: "match31",
-        date: "4 May 2025",
-        time: "3:30 PM IST",
-        team1: {
-          name: "Kolkata Knight Riders",
-          logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+        "id": "match51",
+        "date": "02-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Gujarat Titans",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg"
         },
-        team2: {
-          name: "Rajasthan Royals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+        "team2": {
+          "name": "Sunrisers Hyderabad",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg"
         },
-        venue: "Eden Gardens, Kolkata",
+        "venue": "Narendra Modi Stadium, Ahmedabad"
       },
       {
-        id: "match32",
-        date: "4 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Punjab Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+        "id": "match52",
+        "date": "03-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Royal Challengers Bengaluru",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg"
         },
-        team2: {
-          name: "Lucknow Super Giants",
-          logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        "team2": {
+          "name": "Chennai Super Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg"
         },
-        venue: "Dharamsala Stadium, Dharamsala",
+        "venue": "M. Chinnaswamy Stadium, Bangalore"
       },
       {
-        id: "match55",
-        date: "5 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Sunrisers Hyderabad",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+        "id": "match53",
+        "date": "04-May-25",
+        "time": "3:30 PM",
+        "team1": {
+          "name": "Kolkata Knight Riders",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg"
         },
-        team2: {
-          name: "Delhi Capitals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+        "team2": {
+          "name": "Rajasthan Royals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg"
         },
-        venue: "Rajiv Gandhi International Cricket Stadium, Hyderabad",
+        "venue": "Eden Gardens, Kolkata"
       },
       {
-        id: "match56",
-        date: "6 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Mumbai Indians",
-          logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+        "id": "match54",
+        "date": "04-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Punjab Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg"
         },
-        team2: {
-          name: "Gujarat Titans",
-          logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+        "team2": {
+          "name": "Lucknow Super Giants",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg"
         },
-        venue: "Wankhede Stadium, Mumbai",
+        "venue": "Mullanpur Stadium, New Chandigarh, Punjab"
       },
       {
-        id: "match57",
-        date: "7 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Kolkata Knight Riders",
-          logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+        "id": "match55",
+        "date": "05-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Sunrisers Hyderabad",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg"
         },
-        team2: {
-          name: "Chennai Super Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+        "team2": {
+          "name": "Delhi Capitals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg"
         },
-        venue: "Eden Gardens, Kolkata",
+        "venue": "Rajiv Gandhi International Cricket Stadium, Hyderabad"
       },
       {
-        id: "match58",
-        date: "8 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Punjab Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+        "id": "match56",
+        "date": "06-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Mumbai Indians",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg"
         },
-        team2: {
-          name: "Delhi Capitals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+        "team2": {
+          "name": "Gujarat Titans",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg"
         },
-        venue: "Dharamsala Stadium, Dharamsala",
+        "venue": "Wankhede Stadium, Mumbai"
       },
       {
-        id: "match59",
-        date: "9 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Lucknow Super Giants",
-          logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        "id": "match57",
+        "date": "07-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Kolkata Knight Riders",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg"
         },
-        team2: {
-          name: "Royal Challengers Bengaluru",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+        "team2": {
+          "name": "Chennai Super Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg"
         },
-        venue: "BRSABV Ekana Cricket Stadium, Lucknow",
+        "venue": "Eden Gardens, Kolkata"
       },
       {
-        id: "match60",
-        date: "10 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Sunrisers Hyderabad",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+        "id": "match58",
+        "date": "08-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Punjab Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg"
         },
-        team2: {
-          name: "Kolkata Knight Riders",
-          logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+        "team2": {
+          "name": "Delhi Capitals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg"
         },
-        venue: "Rajiv Gandhi International Cricket Stadium, Hyderabad",
+        "venue": "Mullanpur Stadium, New Chandigarh, Punjab"
       },
       {
-        id: "match61",
-        date: "11 May 2025",
-        time: "3:30 PM IST",
-        team1: {
-          name: "Punjab Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+        "id": "match59",
+        "date": "09-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Lucknow Super Giants",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg"
         },
-        team2: {
-          name: "Mumbai Indians",
-          logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+        "team2": {
+          "name": "Royal Challengers Bengaluru",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg"
         },
-        venue: "Dharamsala Stadium, Dharamsala",
+        "venue": "BRSABV Ekana Cricket Stadium, Lucknow"
       },
       {
-        id: "match62",
-        date: "11 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Delhi Capitals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+        "id": "match60",
+        "date": "10-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Sunrisers Hyderabad",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg"
         },
-        team2: {
-          name: "Gujarat Titans",
-          logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+        "team2": {
+          "name": "Kolkata Knight Riders",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg"
         },
-        venue: "Arun Jaitley Stadium, Delhi",
+        "venue": "Rajiv Gandhi International Cricket Stadium, Hyderabad"
       },
       {
-        id: "match63",
-        date: "12 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Chennai Super Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+        "id": "match61",
+        "date": "11-May-25",
+        "time": "3:30 PM",
+        "team1": {
+          "name": "Punjab Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg"
         },
-        team2: {
-          name: "Rajasthan Royals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+        "team2": {
+          "name": "Mumbai Indians",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg"
         },
-        venue: "MA Chidambaram Stadium, Chennai",
+        "venue": "Mullanpur Stadium, New Chandigarh, Punjab"
       },
       {
-        id: "match64",
-        date: "13 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Royal Challengers Bengaluru",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+        "id": "match62",
+        "date": "11-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Delhi Capitals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg"
         },
-        team2: {
-          name: "Sunrisers Hyderabad",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+        "team2": {
+          "name": "Gujarat Titans",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg"
         },
-        venue: "M. Chinnaswamy Stadium, Bangalore",
+        "venue": "Arun Jaitley Stadium, Delhi"
       },
       {
-        id: "match65",
-        date: "14 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Gujarat Titans",
-          logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+        "id": "match63",
+        "date": "12-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Chennai Super Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg"
         },
-        team2: {
-          name: "Lucknow Super Giants",
-          logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        "team2": {
+          "name": "Rajasthan Royals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg"
         },
-        venue: "Narendra Modi Stadium, Ahmedabad",
+        "venue": "MA Chidambaram Stadium, Chennai"
       },
       {
-        id: "match66",
-        date: "15 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Mumbai Indians",
-          logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+        "id": "match64",
+        "date": "13-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Royal Challengers Bengaluru",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg"
         },
-        team2: {
-          name: "Delhi Capitals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+        "team2": {
+          "name": "Sunrisers Hyderabad",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg"
         },
-        venue: "Wankhede Stadium, Mumbai",
+        "venue": "M. Chinnaswamy Stadium, Bangalore"
       },
       {
-        id: "match67",
-        date: "16 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Rajasthan Royals",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+        "id": "match65",
+        "date": "14-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Gujarat Titans",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg"
         },
-        team2: {
-          name: "Punjab Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+        "team2": {
+          "name": "Lucknow Super Giants",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg"
         },
-        venue: "Sawai Mansingh Stadium, Jaipur",
+        "venue": "Narendra Modi Stadium, Ahmedabad"
       },
       {
-        id: "match68",
-        date: "17 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Royal Challengers Bengaluru",
-          logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+        "id": "match66",
+        "date": "15-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Mumbai Indians",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg"
         },
-        team2: {
-          name: "Kolkata Knight Riders",
-          logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+        "team2": {
+          "name": "Delhi Capitals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg"
         },
-        venue: "M. Chinnaswamy Stadium, Bangalore",
+        "venue": "Wankhede Stadium, Mumbai"
       },
       {
-        id: "match69",
-        date: "18 May 2025",
-        time: "3:30 PM IST",
-        team1: {
-          name: "Gujarat Titans",
-          logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+        "id": "match67",
+        "date": "16-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Rajasthan Royals",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg"
         },
-        team2: {
-          name: "Chennai Super Kings",
-          logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+        "team2": {
+          "name": "Punjab Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg"
         },
-        venue: "Narendra Modi Stadium, Ahmedabad",
+        "venue": "Sawai Mansingh Stadium, Jaipur"
       },
       {
-        id: "match70",
-        date: "18 May 2025",
-        time: "7:30 PM IST",
-        team1: {
-          name: "Lucknow Super Giants",
-          logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        "id": "match68",
+        "date": "17-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Royal Challengers Bengaluru",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg"
         },
-        team2: {
-          name: "Sunrisers Hyderabad",
-          logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+        "team2": {
+          "name": "Kolkata Knight Riders",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg"
         },
-        venue: "BRSABV Ekana Cricket Stadium, Lucknow",
+        "venue": "M. Chinnaswamy Stadium, Bangalore"
+      },
+      {
+        "id": "match69",
+        "date": "18-May-25",
+        "time": "3:30 PM",
+        "team1": {
+          "name": "Gujarat Titans",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg"
+        },
+        "team2": {
+          "name": "Chennai Super Kings",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg"
+        },
+        "venue": "Narendra Modi Stadium, Ahmedabad"
+      },
+      {
+        "id": "match70",
+        "date": "18-May-25",
+        "time": "7:30 PM",
+        "team1": {
+          "name": "Lucknow Super Giants",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg"
+        },
+        "team2": {
+          "name": "Sunrisers Hyderabad",
+          "logo": "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg"
+        },
+        "venue": "BRSABV Ekana Cricket Stadium, Lucknow"
       },
     ];
-
-
     // Filter out past matches
     const currentDate = new Date();
     
