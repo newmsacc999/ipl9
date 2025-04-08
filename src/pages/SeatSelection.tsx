@@ -49,7 +49,7 @@ function SeatSelection() {
     },
     team2: {
       name: "Rajasthan Royals",
-      logo: "https://upload.wikimedia.org/wikipedia/en/6/60/Rajasthan_Royals_Logo.svg",
+      logo: "https://upload.wikimedia.org/wikipedia/hi/6/60/Rajasthan_Royals_Logo.svg",
     },
     venue: "Narendra Modi Stadium, Ahmedabad, Gujarat",
   };
