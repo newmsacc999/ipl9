@@ -8,34 +8,6 @@ function Home() {
 
     const matches = [
       {
-        "id": "match19",
-        "date": "08-Apr-25",
-        "time": "3:30 PM",
-        "team1": {
-          "name": "Kolkata Knight Riders",
-          "logo": "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg"
-        },
-        "team2": {
-          "name": "Lucknow Super Giants",
-          "logo": "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg"
-        },
-        "venue": "Eden Gardens, Kolkata"
-      },
-      {
-        "id": "match22",
-        "date": "08-Apr-25",
-        "time": "7:30 PM",
-        "team1": {
-          "name": "Punjab Kings",
-          "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg"
-        },
-        "team2": {
-          "name": "Chennai Super Kings",
-          "logo": "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg"
-        },
-        "venue": "Mullanpur Stadium, New Chandigarh, Punjab"
-      },
-      {
         "id": "match23",
         "date": "09-Apr-25",
         "time": "7:30 PM",
