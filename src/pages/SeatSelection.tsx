@@ -49,26 +49,27 @@ function SeatSelection() {
     },
     team2: {
       name: "Rajasthan Royals",
-      logo: "https://upload.wikimedia.org/wikipedia/hi/6/60/Rajasthan_Royals_Logo.svg",
+      logo: "https://upload.wikimedia.org/wikipedia/en/6/60/Rajasthan_Royals_Logo.svg",
     },
     venue: "Narendra Modi Stadium, Ahmedabad, Gujarat",
   };
 
-
+  // First, let's define a single source of truth for ticket types
+  // Upper grid ticket types
   const ticketTypes = [
-    { id: 'general', name: 'General Stand', price: 100, available: 85 },
-    { id: 'premium', name: 'Premium Stand', price: 200, available: 100 },
-    { id: 'pavilion', name: 'Pavilion Stand', price: 250, available: 50 },
-    { id: 'vip', name: 'VIP Stand', price: 400, available: 100 },
-    { id: 'corporate', name: 'Corporate Box', price: 500, available: 45 },
-    { id: 'hospitality', name: 'Hospitality Box', price: 750, available: 25 },
-    { id: 'skybox', name: 'Skybox/Lounge', price: 1000, available: 30 },
+    { id: 'general', name: 'General Stand', price: 999, available: 85 },
+    { id: 'premium', name: 'Premium Stand', price: 999, available: 100 },
+    { id: 'pavilion', name: 'Pavilion Stand', price: 999, available: 50 },
+    { id: 'vip', name: 'VIP Stand', price: 999, available: 100 },
+    { id: 'corporate', name: 'Corporate Box', price: 999, available: 45 },
+    { id: 'hospitality', name: 'Hospitality Box', price: 1500, available: 25 },
+    { id: 'skybox', name: 'Skybox/Lounge', price: 1700, available: 30 },
     { id: 'premium-plus', name: 'Premium Plus', price: 1500, available: 60 },
     { id: 'executive', name: 'Executive Lounge', price: 999, available: 40 },
-    { id: 'executiveplus', name: 'Executive Lounge', price: 1500, available: 40 },
+    { id: 'executiveplus', name: 'Executive Plus', price: 1500, available: 40 },
   ];
-
-
+  
+  // Bottom ticket types with different prices
   const bottomTicketTypes = [
     { id: 'general', name: 'General Stand', price: 100, description: 'Affordable seating, usually in the upper stands.' },
     { id: 'premium', name: 'Premium Stand', price: 200, description: 'Better view with comfortable seating.' },
@@ -76,7 +77,7 @@ function SeatSelection() {
     { id: 'vip', name: 'VIP Stand', price: 400, description: 'Exclusive seating with premium amenities.' },
     { id: 'corporate', name: 'Corporate Box', price: 500, description: 'Private box for corporate groups with catering.' },
     { id: 'hospitality', name: 'Hospitality Box', price: 750, description: 'Luxury experience with food and beverages included.' },
-    { id: 'skybox', name: 'Skybox/Lounge', price: 1000, description: 'Ultimate luxury experience with panoramic views.' },
+    { id: 'skybox', name: 'Skybox/Lounge', price: 999, description: 'Ultimate luxury experience with panoramic views.' },
   ];
 
   const handleTicketTypeSelect = (id: string) => {
@@ -113,8 +114,11 @@ function SeatSelection() {
     }
   };
 
-  // Find the selected ticket based on ID
-  const selectedTicket = ticketTypes.find(ticket => ticket.id === selectedTicketType);
+  // Find the selected ticket based on ID and selection source
+  const selectedTicket = selectionSource === 'grid' 
+    ? ticketTypes.find(ticket => ticket.id === selectedTicketType)
+    : bottomTicketTypes.find(ticket => ticket.id === selectedTicketType);
+    
   const totalPrice = selectedTicket ? selectedTicket.price * quantity : 0;
   
   // Find the description for the selected bottom ticket
