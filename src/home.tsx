@@ -9,7 +9,7 @@ function Home() {
     const matches = [
       {
         "id": "match23",
-        "date": "09-Apr-25",
+        "date": "9-Apr-25",
         "time": "7:30 PM",
         "team1": {
           "name": "Gujarat Titans",
