@@ -681,16 +681,21 @@ function Home() {
       },
     ];
     // Filter out past matches
-    const currentDate = new Date();
-    
-    // Convert date strings to Date objects for comparison
-    const upcomingMatches = matches.filter(match => {
-      const matchDate = new Date(match.date + ", 2025");
-      return matchDate >= currentDate;
-    });
+    // Filter out past matches but include today's matches
+const currentDate = new Date();
 
-    // Get visible matches based on showAllMatches state
-    const visibleMatches = showAllMatches ? upcomingMatches : upcomingMatches.slice(0, 3);
+// Set current date to the beginning of the day (midnight)
+const todayStart = new Date(currentDate);
+todayStart.setHours(0, 0, 0, 0);
+
+// Convert date strings to Date objects for comparison
+const upcomingMatches = matches.filter(match => {
+  const matchDate = new Date(match.date + ", 2025");
+  return matchDate >= todayStart;
+});
+
+// Get visible matches based on showAllMatches state
+const visibleMatches = showAllMatches ? upcomingMatches : upcomingMatches.slice(0, 3);
 
     return (
     <div className="min-h-screen bg-white overflow-x-hidden max-w-screen-xl mx-auto">
