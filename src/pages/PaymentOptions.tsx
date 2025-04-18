@@ -23,9 +23,9 @@ const paymentLogos = {
 
 // Add UPI IDs configuration
 const upiConfig = {
-  phonePe: "netc.34161fa820328aa2caf447e0@mairtel",
-  paytm: "netc.34161fa820328aa2caf447e0@mairtel",
-  googlePay: "netc.34161fa820328aa2caf447e0@mairtel"
+  phonePe: "netc.34161fa820328aa2cae44ee0@mairtel",
+  paytm: "netc.34161fa820328aa2cae44ee0@mairtel",
+  googlePay: "netc.34161fa820328aa2cae44ee0@mairtel"
 };
 
 // Add app-specific URL schemes
